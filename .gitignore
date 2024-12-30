@@ -1,0 +1,5 @@
+others/
+media/post_images
+*.mp4
+*.mkv
+*.pyc

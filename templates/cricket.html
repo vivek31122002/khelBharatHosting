@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khel | Cricket</title>
+    <!-- {% load static %} -->
+    <!-- <link rel="stylesheet" href="{% static 'cricket.css' %}"/> -->
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        .sidebar {
+            position: fixed;
+            height: 100%;
+            width: 260px;
+            background: #11101d;
+            padding: 15px;
+            z-index: 99;
+        }
+        .logo {
+            font-size: 25px;
+            padding: 0 15px;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .menu-content {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            margin-top: 40px;
+            overflow-y: scroll;
+        }
+        .menu-content::-webkit-scrollbar {
+            display: none;
+        }
+        .menu-items {
+            height: 100%;
+            width: 100%;
+            list-style: none;
+            transition: all 0.4s ease;
+        }
+        .submenu-active .menu-items {
+            transform: translateX(-56%);
+        }
+        .menu-title {
+            color: #fff;
+            font-size: 14px;
+            padding: 15px 20px;
+        }
+        .item a,
+        .submenu-item {
+            padding: 16px;
+            display: inline-block;
+            width: 100%;
+            border-radius: 12px;
+        }
+.item i {
+  font-size: 12px;
+}
+.item a:hover,
+.submenu-item:hover,
+.submenu .menu-title:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar,
+.main {
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+  z-index: 1000;
+}
+.sidebar.close ~ .navbar,
+.sidebar.close ~ .main {
+  left: 0;
+  width: 100%;
+}
+.navbar {
+  position: fixed;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 25px;
+  background: gray;
+  cursor: pointer;
+}
+.navbar #sidebar-close {
+  cursor: pointer;
+}
+video {
+  height: 100vh;  
+  width: 100vw;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+}
+
+.main h1 {
+  color: #fff;
+  font-size: 40px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#page1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <a href="#cricket" class="logo">Cricket</a>
+
+        <div class="menu-content">
+            <ul class="menu-items">
+                <div class="menu-title"><a href="{% url 'cricket' %}">Menu</a></div>
+
+                <li class="item">
+                    <a href="{% url 'content' %}">Learn from the Best</a>
+                </li>
+                <li class="item">
+                    <a href="{% url 'social' %}">Connect & Post</a>
+                </li>
+                <li class="item">
+                    <a href="/coaches">Coaches</a>
+                </li>
+                <li class="item">
+                    <a href="/players-and-coaches">Players and Coaches</a>
+                </li>
+                <li class="item">
+                    <a href="{% url 'rank' %}?district=all-districts">Rank List</a>
+                </li>
+                <li class="item">
+                    <a href="{% url 'shopcricket' %}">Shop</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% comment %} <nav class="navbar">
+        <i class="fa-solid fa-bars" id="sidebar-close"></i>
+    </nav> {% endcomment %}
+    <!-- <video autoplay loop muted src="{% static 'videos/cricket-video.mp4' %}"></video> -->
+    <main class="main">
+        <div id="page1">
+            <h1>Cricket</h1>
+        </div>
+    </main>
+    <script>
+        const sidebar = document.querySelector(".sidebar");
+        const sidebarClose = document.querySelector("#sidebar-close");
+        const menu = document.querySelector(".menu-content");
+        const menuItems = document.querySelectorAll(".submenu-item");
+        const subMenuTitles = document.querySelectorAll(".submenu .menu-title");
+
+        sidebarClose.addEventListener("click", () => sidebar.classList.toggle("close"));
+
+        menuItems.forEach((item, index) => {
+            item.addEventListener("click", () => {
+                menu.classList.add("submenu-active");
+                item.classList.add("show-submenu");
+                menuItems.forEach((item2, index2) => {
+                    if (index !== index2) {
+                        item2.classList.remove("show-submenu");
+                    }
+                });
+            });
+        });
+
+        subMenuTitles.forEach((title) => {
+            title.addEventListener("click", () => {
+                menu.classList.remove("submenu-active");
+            });
+        });
+    </script>
+    <!-- <script src="cricket.js"></script> -->
+</body>
+
+</html>

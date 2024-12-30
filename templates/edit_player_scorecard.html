@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Scorecard</title>
+    <link rel="stylesheet" href="{% static 'css/edit_player_scorecard.css' %}">
+</head>
+<body>
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Rank</th>
+                <th>Location</th>
+                <th>Sport</th>
+                <th>Matches Played</th>
+                <th>Runs Scored</th>
+                <th>Points</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for scorecard in all_scorecards %}
+            <tr>
+                <td>{{scorecard.user.user.username}}</td>
+                <td>{{scorecard.rank}}</td>
+                <td>{{scorecard.location}}</td>
+                <td>{{scorecard.sport}}</td>
+                <form action="/update-scorecard/{{scorecard.user.user.username}}" method="post">
+                    {% csrf_token %}
+                    <td><input type="number" name="matches_played" value="{{scorecard.matches_played}}"></td>
+                    <td><input type="number" name="runs_scored" value="{{scorecard.runs_scored}}"></td>
+                    <td><input type="number" name="points" value="{{scorecard.points}}"></td>
+                    <td><button type="submit">Save</button></td>
+                </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,542 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KHEL BHARAT</title>
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/utility.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/card1.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/aboutus.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 88%;
+      }
+
+      .swiper-slide {
+        position: relative;
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      #scrollToTopBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed position */
+        bottom: 10px; /* Position from the bottom */
+        right: 10px; /* Position from the right */
+        z-index: 99; /* Ensure it is on top */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: white; /* Background color */
+        color: black; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 10px; /* Some padding */
+        border-radius: 100%; /* Rounded corners */
+        font-size: 15px; /* Increase font size */
+      }
+
+      #scrollToTopBtn:hover {
+        background-color: rgb(225, 225, 225); /* Darker background on hover */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-loader">
+      <div class="loader">
+        <h1>KHEL</h1>
+        <h1>BHARAT</h1>
+        <h1>Dil-Se</h1>
+      </div>
+    </div>
+    <div class="nav-bar">
+      <header><img src="{% static 'images/logo.svg' %}" alt="" /></header>
+      <ul>
+        <li><a href="#Games">Games</a></li>
+        <li><a href="/loans">Loans</a></li>
+        <li><a href="/shopcricket">Shop</a></li>
+        <li><a href="/sponsers">Sponsors</a></li>
+        <li><a href="/schemes">Schemes</a></li>
+        <li><a href="/sos">SOS</a></li>
+      </ul>
+    </div>
+
+    <!-- swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="{% static 'images/IMG_0207.PNG' %}"
+            alt=""
+            class="background-image"
+            style="object-position: center;"
+          />
+          <div class="text1">
+            <p>WELCOME TO</p>
+            <h1>KHEL <span id="bharat">BHARAT</span></h1>
+            <!-- <p>CRAVE YOUR SPORTING CARRIER</p> -->
+            <button class="sbutton">
+              <!-- <a href="/profile/" style="text-decoration: none; color: black"
+                >Connect</a
+              > -->
+              <a href="/signin" style="text-decoration: none; color: black"
+                >Connect</a
+              >
+            </button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="{% static 'images/IMG_0206.PNG' %}"
+            alt=""
+            class="background-image"
+            style="object-position: top;"
+          />
+          <div class="text2">
+            <p>Serious about your Game?</p>
+            <h1>You are at the right place!</h1>
+            <!-- <button class="sbutton">Male</button>
+            <button class="sbutton">Female</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- about section -->
+    <div class="scroller2" id="About">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h2>Origin of Idea</h2>
+            <p>
+              This idea originated based on true stories of our team. Facing
+              problems and learning how to overcome them, we decided to make it
+              "not impossible" for all the sports enthusiasts over there waiting
+              to achieve their dream. Our motto is simple "let everyone in
+              bharat <b>Khel.</b>"
+            </p>
+            <!-- <button class="cta-button">Learn More</button> -->
+          </div>
+          <div class="hero-image">
+            <img src="{% static 'images/IMG_0216.PNG' %}" width="500px" />
+          </div>
+        </div>
+      </section>
+      <div class="card-container1">
+        <div class="card1">
+          <div class="card-content1">
+            <h1>Women Safety</h1>
+            <p>
+              We ensure that this enviroment is safe for all. Especially
+              <b>Women</b>.
+            </p>
+            <a href="/women-safety-page"> <button class="cta-button">Read More</button></a>
+          </div>
+        </div>
+
+        <div class="card1">
+          <div class="card-content1">
+            <h1>Lack of Funds</h1>
+            <p>
+              Know how you can be supported financially through various
+              <b>Schemes</b>.
+            </p>
+            <a href="/funds-page"> <button class="cta-button">Read More</button></a>
+          </div>
+        </div>
+
+        <div class="card1">
+          <div class="card-content1">
+            <h1>Sports Politics</h1>
+            <p>
+              Get to know how the selection process is transparent and not
+              <b>Shady</b>.
+            </p>
+            <a href="/sports-politics-page"> <button class="cta-button">Read More</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- about section end -->
+
+    <!-- how can we help you -->
+    <div class="scroller2">
+      <div class="help">
+        <div class="left">
+          <div>
+            <h2>How can we help you !</h2>
+            <div class="tick">
+              <img src="{% static 'images/tick.svg' %}" alt="" />Sports
+              Schlorships
+            </div>
+            <div class="tick">
+              <img src="{% static 'images/tick.svg' %}" alt="" />Platform to
+              learn and teach
+            </div>
+            <div class="tick">
+              <img src="{% static 'images/tick.svg' %}" alt="" />Get sponsors
+            </div>
+            <div class="tick">
+              <img src="{% static 'images/tick.svg' %}" alt="" />Get good
+              Opportunities
+            </div>
+          </div>
+          <!-- <button id="tbutton">Check out Services</button> -->
+        </div>
+        <div class="right">
+          <div class="wrapper">
+            <div class="container">
+              <i class="fas fa-bowling-ball"></i>
+              <span class="num" data-val="400">000</span>
+              <span class="text">number of people</span>
+            </div>
+            <div class="container">
+              <i class="fas fa-smile-beam"></i>
+              <span class="num" data-val="340">000</span>
+              <span class="text">Happy Customers</span>
+            </div>
+            <div class="container">
+              <i class="fas fa-list"></i>
+              <span class="num" data-val="225">000</span>
+              <span class="text">gaining trusts</span>
+            </div>
+            <div class="container">
+              <i class="fas fa-star"></i>
+              <span class="num" data-val="280">000</span>
+              <span class="text">Five stars</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sticky midddle page -->
+    <div class="scroller2">
+      <div class="sticky">
+        <img
+          src="{% static 'images/IMG_0213.PNG' %}"
+          alt=""
+          class="sticky-image"
+        />
+        <div class="stickycard">
+          <div class="scard">
+            <img src="{% static 'images/basketball.jpg' %}" alt="" />
+            <p>
+              <span><b>Get Government Benefits </b></span><br /><br />With us,
+              you get the perks and allowances as an athlete/sportsperson. You
+              will be updated on all the recent activities related to sports by
+              the Government. Hence never missing a chance on something big :)
+            </p>
+          </div>
+          <div class="scard2">
+            <img src="{% static 'images/badminton.jpg' %}" alt="" />
+            <p>
+              <span><b>Get worldy exposure around peers</b></span
+              ><br /><br />
+              Stand a chance to participate in all the upcoming bombastic
+              events. Get to interact with a lot of other athletes just like
+              you. Grow! Hustle! and lastly.... Never stop.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sticky middle ends -->
+
+    <!-- sports cards -->
+    <div class="scroller2" id="Games">
+      <h2 id="sports">Sports</h2>
+      <div class="card-container">
+        <div class="card">
+          <div class="card-content">
+            <h2>Hockey</h2>
+            {% comment %} <p>This is the content of card 1.</p> {% endcomment %}
+            <a href="#hockey">Hockey</a>
+          </div>
+        </div>
+        <div class="card2">
+          <div class="card-content">
+            <h2>Cricket</h2>
+            {% comment %} <p>This is the content of card 2.</p> {% endcomment %}
+            <a href="/cricket">Cricket</a>
+          </div>
+        </div>
+        <div class="card3">
+          <div class="card-content">
+            <h2>Kabaddi</h2>
+            {% comment %} <p>This is the content of card 3.</p> {% endcomment %}
+            <a href="#kabaddi">Kabaddi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sports cards ends -->
+
+    <!-- about the team -->
+
+    <div class="scroller2" id="AboutUs">
+      <div class="heading">
+        <h1>The Khiladi's</h1>
+      </div>
+      <div class="team-card-container">
+        <div class="team-card" style="border-radius: 25px">
+          <div class="team-card-content">
+            <img class="img" src="{% static 'images/D1.PNG' %}" alt="" />
+            <br /><br />
+            <h6 style="text-align: center">Rohail K</h6>
+            <p class="text" style="text-align: center">DBA, UI/UX Developer</p>
+            <a
+              class="btn btn-square btn-outline-secondary rounded-circle mx-1"
+              href="https://www.linkedin.com/in/rohail-khan-159213264/"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="team-card" style="border-radius: 25px">
+          <div class="team-card-content">
+            <img class="img" src="{% static 'images/D2.PNG' %}" alt="" />
+            <br /><br />
+            <h6 style="text-align: center">Vivek R K</h6>
+            <p class="text" style="text-align: center">DBA, UI/UX Developer</p>
+            <a
+              class="btn btn-square btn-outline-secondary rounded-circle mx-1"
+              href="https://www.linkedin.com/in/vivek-rk-178724278/"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="team-card" style="border-radius: 25px">
+          <div class="team-card-content">
+            <img class="img" src="{% static 'images/D3.PNG' %}" alt="" />
+            <br /><br />
+            <h6 style="text-align: center">Sharath Chandra</h6>
+            <p class="text" style="text-align: center">DBA, UI/UX Developer</p>
+            <a
+              class="btn btn-square btn-outline-secondary rounded-circle mx-1"
+              href="https://www.linkedin.com/in/avgeek/"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+        <div class="team-card" style="border-radius: 25px">
+          <div class="team-card-content">
+            <img class="img" src="{% static 'images/D4.PNG' %}" alt="" />
+            <br /><br />
+            <h6 style="text-align: center">Vinay DB</h6>
+            <p class="text" style="text-align: center">DBA, UI/UX Developer</p>
+            <a
+              class="btn btn-square btn-outline-secondary rounded-circle mx-1"
+              href="https://www.linkedin.com/in/darshans03/"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--end of about the team  -->
+
+    <!-- contact us -->
+    <div class="scroller2">
+      <section class="contact">
+        <div class="content">
+          <h2>Contact</h2>
+          <p>
+            We would love to hear from you and are always open for feedback. Let
+            us know your thoughts.
+          </p>
+        </div>
+        <div class="contact-container">
+          <div class="contactInfo">
+            <div class="box">
+              <div class="icon">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </div>
+              <div class="text">
+                <h3>Address</h3>
+                <p>4671 Devraj-urs,<br />Davanagere, Karnataka,<br />577006</p>
+              </div>
+            </div>
+            <div class="box">
+              <div class="icon">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+              </div>
+              <div class="text">
+                <h3>Phone</h3>
+                <p>+91 78927-18642</p>
+              </div>
+            </div>
+            <div class="box">
+              <div class="icon">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </div>
+              <div class="text">
+                <h3>Email</h3>
+                <p>Rohail230@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="contactForm">
+            <form>
+              <div class="msg">
+                <h2>Send Message</h2>
+              </div>
+              <div class="inputBox">
+                <input type="text" name="" required="required" />
+                <span>Full Name</span>
+              </div>
+              <div class="inputBox">
+                <input type="text" name="" required="required" />
+                <span>Email</span>
+              </div>
+              <div class="inputBox">
+                <textarea required="required"></textarea>
+                <span>Type Your Message...</span>
+              </div>
+              <div class="inputBox">
+                <input class="sendbutton" type="submit" name="" value="Send" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- contact us end -->
+
+    <!-- footer starts -->
+    <div class="scroller2">
+      <footer class="footer">
+        <div class="container4">
+          <div class="row">
+            <div class="footer-col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#AboutUs">about us</a></li>
+                <li><a href="#">our services</a></li>
+                <li><a href="#">privacy policy</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>get help</h4>
+              <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Upcoming Events</a></li>
+                <li><a href="#">Why us</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- footer ends -->
+    <button id="scrollToTopBtn" title="Go to top">&uarr;</button>
+
+    <script src="{% static 'js/count.js' %}"></script>
+    <script src="{% static 'js/scroll.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          scrollToTopBtn.style.display = "block";
+        } else {
+          scrollToTopBtn.style.display = "none";
+        }
+      }
+
+      scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      
+    </script>
+  </body>
+</html>

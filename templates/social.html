@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'social.css' %}" />
+    <title>Khel | Cricket | Social</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        .sidebar {
+            position: fixed;
+            height: 100%;
+            width: 260px;
+            background: #11101d;
+            padding: 15px;
+            z-index: 99;
+        }
+        .logo {
+            font-size: 25px;
+            padding: 0 15px;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .menu-content {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            margin-top: 40px;
+            overflow-y: scroll;
+        }
+        .menu-content::-webkit-scrollbar {
+            display: none;
+        }
+        .menu-items {
+            height: 100%;
+            width: 100%;
+            list-style: none;
+            transition: all 0.4s ease;
+        }
+        .submenu-active .menu-items {
+            transform: translateX(-56%);
+        }
+        .menu-title {
+            color: #fff;
+            font-size: 14px;
+            padding: 15px 20px;
+        }
+        .item a,
+        .submenu-item {
+            padding: 16px;
+            display: inline-block;
+            width: 100%;
+            border-radius: 12px;
+        }
+        .item i {
+            font-size: 12px;
+        }
+        .item a:hover,
+        .submenu-item:hover,
+        .submenu .menu-title:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar,
+        .main {
+            left: 260px;
+            width: calc(100% - 260px);
+            transition: all 0.5s ease;
+            z-index: 1000;
+        }
+        .sidebar.close ~ .navbar,
+        .sidebar.close ~ .main {
+            left: 0;
+            width: 100%;
+        }
+        .navbar {
+            position: fixed;
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 25px;
+            background: gray;
+            cursor: pointer;
+        }
+        .navbar #sidebar-close {
+            cursor: pointer;
+        }
+        .connectandpost{
+          margin-left: 30vw;
+          width: 60vw;
+          color: black;
+          font-family: 'Courier New', Courier, monospace;
+          font-weight: 700;
+        }
+        .connectandpost h1{
+          font-size: 50px;
+          color: black;
+        }
+        .posterfooter{
+            background-color: #E5E4E2;
+            width: 800px;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid;
+            border-radius: 20px;
+        }
+        .makepost{
+            margin-left: 48vw;
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <a href="#cricket" class="logo">Cricket</a>
+        <div class="menu-content">
+            <ul class="menu-items">
+                <div class="menu-title"><a href="{% url 'cricket' %}">Menu</a></div>
+                <li class="item">
+                    <a href="/content">Learn from the Best</a>
+                </li>
+                <li class="item">
+                    <a href="{% url 'social' %}">Connect & Post</a>
+                </li>
+                <!-- <li class="item">
+                    <a href="#cricketscorecard">Add score card</a>
+                </li> -->
+                <li class="item">
+                    <a href="/rank">Rank List</a>
+                </li>
+                <li class="item">
+                    <a href="{% url 'shopcricket' %}">Shop</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main">
+        <div class="connectandpost">
+          <h1>Check-Out!</h1>
+          <a href="{% url 'upload_post' %}" class="makepost">Make a Post</a>
+          {% comment %} <h2>Keep Your Self Updated</h2> {% endcomment %}
+        </div>
+        <div class="posts" style="margin-left: 30vw; margin-bottom: 2rem;">
+            <br/>
+            {% for post in all_posts reversed %}
+            <div class="postheader" style="width:800px; display:flex; justify-content:space-between; background-color:white; color: black; padding: 7px; border: 1px solid white; border-radius: 20px; align-items: center;">
+                <strong><a style="text-decoration: none; font-size: 20px;" href="#">@{{post.user}}</a></strong><br/>
+                <a style="text-decoration: none; font-size: 20px;" href="#">Delete Post</a><br/>
+            </div>
+            <img
+                src="{{ post.image.url }}"
+                alt="post-image"
+                style="height: 500px; width: 800px; border: 1px solid black; border-radius: 20px;"/>
+            <div class="posterfooter">
+                <p>{{post.caption}}</p>
+                <a href="/like-post?post_id={{post.id}}"></a>
+                <p>Liked by {{ post.no_of_likes }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

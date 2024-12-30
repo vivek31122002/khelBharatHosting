@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gilroy';
+}
+
+.scroller2 {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.main-loader {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.main-loader h1 {
+    font-size: 100px;
+    color: transparent;
+    background: linear-gradient(to right, orange, white, green);
+    -webkit-background-clip: text;
+    position: absolute;
+    opacity: 0;
+    animation-name: load;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: linear;
+}
+
+.main-loader h1:nth-child(2) {
+    animation-delay: 2s;
+
+}
+
+.main-loader h1:nth-child(3) {
+    animation-delay: 3s;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 15px;
+    font-family: sans-serif;
+    cursor: pointer;
+    background-color: rgb(221, 221, 81);
+    min-height: 10vh;
+    justify-content: space-around;
+}
+
+#bharat{
+    color: rgb(255, 255, 0);
+    font-family:  "Anton", sans-serif;
+    font-weight: 400;
+}
+
+
+.nav-bar header img {
+    height: 50px;
+    width: 50px;
+}
+
+.nav-bar ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    list-style: none;
+}
+
+.nav-bar li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+}
+
+.nav-bar li a:hover {
+    color: #024cfb;
+    transition: 0.25s;
+}
+
+.section {
+    min-height: 50vh;
+    min-width: 40vw;
+    background-color: black;
+    color: white;
+    font-size: 60px;
+}
+
+
+/* slide 1 */
+.swiper-slide .text1 {
+    position: absolute;
+    top: 28vh;
+    left: 7vw;
+    color: #fff;
+    z-index: 1;
+    font-size: 30px;
+}
+.swiper-slide .text1 p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 25px;
+}
+
+
+.swiper-slide .text1 h1 {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-size: 100px;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+
+/* slide 2 */
+
+
+
+.swiper-slide .text2 {
+    position: absolute;
+    top: 55vh;
+    right: 35vw;
+    color: #fff;
+    /* Ensure text is visible on image */
+    z-index: 1;
+    
+}
+
+.swiper-slide .text2 p {
+    padding-bottom: 1.5vh;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    color: #EDDD5E;
+}
+.swiper-slide .text2 h1{
+    font-family: "Open Sans", sans-serif;
+    padding-bottom: 0.5rem;
+    font-size: 35px;
+}
+
+.sbutton {
+    margin-top: 10px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    width: 9vw;
+    height: 6vh;
+    border: 1px solid black;
+    color: black;
+    background-color: rgb(221, 221, 81);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.sbutton:hover{
+    transform: scale(1.1);
+}
+
+.help {
+    min-height: 70vh;
+    min-width: 100%;
+}
+
+.left {
+    margin-top: 25vh;
+    margin-left: 10vw;
+}
+.right {
+    .wrapper {
+      position: absolute;
+      width: 30vw;
+      transform: translate(-50%, -50%);
+      top: 37%;
+      left: 55%;
+      margin-left: 20vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0; /* No gap between the grid items */
+      /* border: 2px solid black; */
+      border-radius: 30px;
+    }
+    .container {
+        padding: 0;
+        margin: 0;
+      width: 100%;
+      aspect-ratio: 1 / 1; /* Maintains a square aspect ratio */
+      display: grid;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      font-size: 16px;
+      
+      background-color: white;
+      /* border-bottom: 10px solid #18f98f; */
+    }
+    i {
+      color: black;
+      font-size: 2.5em;
+      text-align: center;
+    }
+    span.num {
+      color: black;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      font-size: 3em;
+    }
+    span.text {
+      color: black;
+      font-size: 1em;
+      text-align: center;
+      padding: 0.7em 0;
+      font-weight: 400;
+      line-height: 0;
+    }
+}
+
+  
+.tick {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1px;
+}
+
+.left h2 {
+    padding-bottom: 5vh;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 40px;
+}
+
+.tick {
+    color: #6c757d;
+    font-size: 20px;
+    padding: 10px;
+}
+
+#tbutton {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 550;
+    width: 20vw;
+    height: 7vh;
+    border: 1px solid white;
+    color: #404A3D;
+    background-color: #EDDD5E;
+    margin-left: 2vw;
+    margin-top: 4vh;
+    border-radius: 25px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+#tbutton:hover{
+    transform: scale(1.1);
+}
+
+.sticky {
+    min-height: 60vh;
+    min-width: 100%;
+    position: relative;
+    /* Needed to position the background image */
+    overflow: hidden;
+    /* Ensures that the image stays within the .sticky boundaries */
+    padding: 3px;
+}
+
+.stickycard {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 11vh;
+}
+
+.sticky-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the image covers the entire area */
+    z-index: -1;
+    /* Places the image behind the content */
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.scard {
+    display: flex;
+    min-height: 20vh;
+    width: 45%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 25px;
+
+}
+.scard2 {
+    display: flex;
+    min-height: 20vh;
+    width: 45%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 25px;
+
+}
+
+.scard img {
+    margin-bottom: 50px;
+    height: 320px;
+    width: 30%;
+    border-radius: 25px;
+}
+.scard2 img {
+    margin-bottom: 50px;
+    height: 320px;
+    width: 30%;
+    border-radius: 25px;
+}
+
+.scard span {
+    font-size: 40px;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+.scard2 span {
+    font-size: 40px;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+
+
+.scard p {
+    padding: 10px 10px;
+    font-size: 17px;
+    color: white;
+}
+.scard2 p {
+    padding: 10px 10px;
+    margin-bottom: 90px;
+    font-size: 17px;    
+    color: white;
+}
+
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    min-height: 60vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+#sports{
+    margin-top: 5rem;
+    margin-left: 45.5vw;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 40px;
+}
+
+.card {
+    width: 350px;
+    height: 350px;
+    background-image: url('../images/hockey.jpg'); /* Replace with your image URL */
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+
+}
+.card2 {
+    width: 350px;
+    height: 350px;
+    background-image: url('../images/cricket.jpg'); /* Replace with your image URL */
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+
+}
+.card3 {
+    width: 350px;
+    height: 350px;
+    background-image: url('../images/kabaddi.jpg'); /* Replace with your image URL */
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+
+}
+.card:hover {
+    background-position: left right;
+    transition: 0.3s;
+}
+.card2:hover {
+    background-position: left right;
+    transition: 0.3s;
+}.card3:hover {
+    background-position: left right;
+    transition: 0.3s;
+}
+.card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* To make content visible on hover */
+    transition: background-color 0.3s ease;
+}
+
+.card:hover .card-content {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.card2:hover .card-content {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.card3:hover .card-content {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 24px;
+}
+.card2 h2 {
+    margin: 0;
+    font-size: 24px;
+}
+.card3 h2 {
+    margin: 0;
+    font-size: 24px;
+}
+.card p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    text-align: center;
+}
+.card2 p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    text-align: center;
+}
+.card3 p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    text-align: center;
+}

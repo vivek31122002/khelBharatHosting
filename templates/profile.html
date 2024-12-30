@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ user_profile.user.username }}'s Profile | Home | {{ user_profile.profile_type }}</title>
+    <link rel="stylesheet" href="{% static 'css/profile_style.css' %}">
+</head>
+<body>
+    <header id="header">
+        <h1>Welcome, {{ user_profile.user.username }}</h1>
+        <div class="user">
+            {% if user_profile.profile_type == 'Coach' %}
+            <a href="/edit-player-scorecard">Edit Players Scorecard</a>
+            {% endif %}
+            <a href="{% url 'rank' %}?district=all-districts">Ranks</a>
+            <a href="/upload-post/" class="button">Make a Post</a>
+            <!-- <a href="profile-page/{{ user_profile.user.username }}"><img src="{{ user_profile.profileimg.url }}" alt="Profile Image" width="50" height="50" class="profile-img"/></a> -->
+            <a href="{% url 'profile' user_profile.user.username %}"><img src="{{ user_profile.profileimg.url }}" alt="Profile Image" width="50" height="50" class="profile-img"/></a>
+
+            <a href="/logout/" class="button">Logout</a>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="posts">
+            <h2>{{ user_profile.user.username }}'s Posts</h2>
+            {% for post in posts reversed %}
+            <div class="post">
+                <div class="post-header">
+                    <strong><a href="#">@{{post.user}}</a></strong>
+                    <a href="#" class="delete-post">Delete Post</a>
+                </div>
+                <img src="{{ post.image.url }}" alt="post-image" class="post-image">
+                <p><strong><a href="#">@{{post.user}}</a></strong> {{post.caption}}</p>
+                <a href="/like-post?post_id={{post.id}}" class="like-post">Like the Post</a>
+                <p>Liked by {{ post.no_of_likes }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

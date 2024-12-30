@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ user_profile.user.username }}'s' Profile</title>
+    <link rel="stylesheet" href="{% static 'css/user_profile.css' %}" />
+  </head>
+  <body>
+    <h1>{{ user_profile.user.username }}</h1>
+    <img src="{{ user_profile.profileimg.url }}" alt="profile-img" />
+    <p>No of posts : {{ no_of_posts }}</p>
+    <p>{{ user_profile.bio }}</p>
+    <strong>Location : {{ user_profile.location }}</strong>
+    <strong>Sport : {{ user_profile.sport }}</strong>
+    <a href="/players-and-coaches">See Players and Coaches</a>
+    {% if user_profile.profile_type == 'Player' %}
+    <p>Runs scored : {{ user_profile.runs_scored }}</p>
+    <p>Matches Played : {{ user_profile.matches_played }}</p>
+    <p>Points : {{ user_profile.points }}</p>
+    {% endif %}
+    {% if user_profile.profile_type == 'Coach' %}
+    <br><a href="/add-player">Add Player</a>
+    {% endif %}
+
+    <strong>Profile Type : {{ user_profile.profile_type }}</strong>
+    <form action="{% url 'change_profile_type' user_profile.user.username %}" method="post">
+        {% csrf_token %}
+        <button type="submit">
+          Change profile type to {% if user_profile.profile_type == 'Player' %} Coach {% else %} Player {% endif %}
+        </button>
+    </form>
+    
+      
+  </body>
+</html>

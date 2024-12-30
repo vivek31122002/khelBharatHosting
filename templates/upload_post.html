@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a post</title>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Courier+New:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* background-image: url('{% static 'wp3509181.jpg' %}'); */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+        .postform {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 5vh auto;
+            width: 40vw;
+        }
+        h1, h2 {
+            text-align: center;
+            margin: 0;
+        }
+        h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        .pf {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: black;
+            color: white;
+            padding: 20px;
+        }
+        .pf h1, .pf h2 {
+            color: white;
+        }
+        p {
+            margin: 10px 0;
+        }
+        textarea, input[type="file"], button {
+            width: 300px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="pf">
+        <h1>Upload your Posts 🧗🏾‍♂</h1>
+        <h2>Share your Performances 🙌</h2>
+    </div>
+    <div class="postform">
+        <form action="/upload-post/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>Upload an image</p>
+            <input type="file" name="image" accept="image/*"><br>
+            <p>Write a caption for the post</p>
+            <textarea name="caption" id="caption"></textarea><br>
+            <button type="submit">Upload Post</button>
+        </form>
+    </div>
+</body>
+</html>

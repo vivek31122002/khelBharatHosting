@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px 20px;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header .user {
+    display: flex;
+    align-items: center;
+}
+
+header .user a,
+header .user button {
+    color: white;
+    /* background-color: rgb(10, 102, 194); */
+    border: none;
+    margin-left: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* header .user a:hover,
+header .user button:hover {
+    background-color: rgb(10, 102, 200);
+} */
+
+header .user .profile-img {
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.posts {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+}
+
+.posts h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.post {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+/* .post:hover {
+    transform: translateY(-5px);
+} */
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post strong a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.post a.delete-post {
+    text-decoration: none;
+    color: #FF6347;
+    font-size: 14px;
+}
+
+.post img.post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.post p {
+    margin: 10px 0;
+}
+
+.post a.like-post {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.post p {
+    font-size: 14px;
+}

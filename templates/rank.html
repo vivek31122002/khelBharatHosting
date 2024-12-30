@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranks</title>
+    <link rel="stylesheet" href="{% static 'css/rank.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/rank.png' %}" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+    <form method="get" class="district-form">
+        <select name="district" class="district-select" onchange="this.form.submit()">
+            <option value="all-districts" {% if selected_place == "all-districts" %}selected{% endif %}>All districts</option>
+            {% for district in districts %}
+            <option value="{{ district }}" {% if district == selected_place %}selected{% endif %}>{{ district }}</option>
+            {% endfor %}
+            <option value="all-countries" {% if selected_place == "all-countries" %}selected{% endif %}>All countries</option>
+        </select>
+        <input type="search" name="search" id="search-box" placeholder="Search..." value="{{ search_query }}">
+    </form>
+    </header>
+    
+    <h1>Ranks in 
+        {% if selected_place == 'all-districts' %}
+        All Districts
+        {% elif selected_place == 'all-countries' %}
+        All Countries
+        {% else %}
+        {{ selected_place }}
+        {% endif %}
+    </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Runs Scored</th>
+                {% if not selected_place == "all-countries" %}
+                <th>District</th>
+                {% else %}
+                <th>Country</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for rank in ranks %}
+            <tr class="{% if rank.rank <= 5 %}top-rank{% endif %}">
+                <td>{{ rank.rank }}</td>
+                <td>{{ rank.name }}</td>
+                <td>{{ rank.points }}</td>
+                {% if not selected_place == "all-countries" %}
+                <td>{{ rank.district }}</td>
+                {% else %}
+                <td>{{ rank.country }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
